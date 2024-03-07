@@ -1,0 +1,284 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#root {
+    height: 100vh;
+    width: 100%;
+    overflow: visible
+}
+
+.appWrapper {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "content";
+    grid-template-rows: 1fr 15fr;
+}
+
+.navigationBar {
+    grid-area: "nav";
+    background-color: gray;
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+}
+
+.navigationBtn {
+    background-color: transparent;
+    border: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-right: solid black 2px;
+    padding-right: 5px;
+
+
+}
+
+.navigationBtn.current {
+    font-weight: bold;
+}
+
+.navigationBtn:last-of-type {
+    border: none;
+}
+
+.navigationBtn:hover {
+    font-weight: bold;
+}
+
+.content {
+    grid-area: "content";
+    background: rgb(168, 135, 98);
+    overflow: hidden;
+
+}
+
+.shopWrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+        "shops meds";
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+}
+
+.shopsNav {
+    display: grid;
+    grid-template-rows: 1fr 11fr;
+    margin: 25px;
+    padding: 20px;
+    overflow: hidden;
+    height: 70%;
+    border: 2px solid black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.shopsNav h2 {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: fit-content;
+}
+
+.shopsList {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    align-content: flex-start;
+    padding-inline-start: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+}
+
+.shopItem {
+    list-style: none;
+    flex: 1;
+    min-width: 100%;
+    object-fit: cover;
+    border: 2px solid black;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+.shopItemContent {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+.medicinesGrid {
+    display: grid;
+    height: 70%;
+    row-gap: 50px;
+    column-gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    overflow-y: scroll;
+    margin: 25px;
+    padding: 50px;
+    border: 2px solid black;
+    border-radius: 20px;
+
+}
+
+.medicineItem {
+    display: grid;
+    grid-template-areas:
+        "img"
+        "name btn";
+    gap: 10px;
+    max-height: 300px;
+    height: 100%;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.medicineItem img {
+    grid-area: "img";
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.medicineName {
+    grid-area: "name";
+    height: fit-content;
+    width: fit-content;
+}
+
+.addToCartBtn {
+    background-color: white;
+    border: 2px solid black;
+    grid-area: "btn";
+    width: fit-content;
+}
+
+.cartForm {
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "buyer list"
+        "footer footer";
+    grid-template-rows: 1fr 150px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.buyerInfo {
+    margin: 25px;
+    grid-area: buyer;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.buyerInfo label {
+    font-size: 1.3em
+}
+
+.buyerInfo input {
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.cartListWrapper {
+    margin: 25px;
+    grid-area: list;
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+    column-gap: 25px;
+}
+
+.cartList {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 25px;
+}
+
+.cartItem {
+    list-style: none;
+    width: 70%;
+}
+
+.cartItemBlock {
+    display: grid;
+    grid-template-areas:
+        "img name"
+        "img buy";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.cartItem img {
+    grid-area: img;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.cartItemName {
+    grid-area: name;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.cartBuyBlock {
+    grid-area: buy;
+    font-size: 1.4em;
+}
+
+.amountInput {
+    /* grid-area: input; */
+    width: 50px;
+    border: 2px solid black;
+}
+
+.resultFooter {
+    margin: 25px;
+    grid-area: footer;
+    grid-column: 1 2;
+    display: flex;
+    margin-left: auto;
+    gap: 50px;
+    align-items: baseline;
+}
+
+.totalPrice {
+    font-size: 1.5em;
+}
+
+.submitBtn {
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    font-size: 2em;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
